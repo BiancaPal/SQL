@@ -1,12 +1,12 @@
 use magatzem;
 
-select * from proveïdors;
+select * from proveidor;
 
-insert into Proveïdors
+insert into proveidor
 values ('5246','clarel','Ferran','29','123456789');
 
-insert into Familia
-values ('ornament','vell','5246');
+insert into familia
+values ('0','ornaments','vell','5246');
 
-insert into Article
-values ('0','perles','2','3.20','ornament');
+insert into article
+values ('1','perles','2','3.20','0');

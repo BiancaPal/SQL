@@ -1,31 +1,32 @@
 use magatzem;
 
-select * from proveïdors;
+select * from proveidor;
 
-insert into Proveïdors(cif, nom, adreça)
+insert into proveidor(CIF, Nom, Adreça)
 values ('1111111D','CINFA','Ronda');
 
-insert into Familia (nom)
-values ('Fruitsec');
+insert into familia (Codi, Nom, proveidor_CIF)
+values ('1','Fruitsec','1111111D');
 
-insert into Article (Codi, nom, quantitat)
-values ('1','Pack Mescla','20');
+insert into article (Codi_article, Nom, Quantitat_estoc, familia_Codi)
+values ('1','Pack Mescla','20','1');
 
-insert into Proveïdors(cif, nom, adreça)
+insert into proveidor(CIF, Nom, Adreça)
 values ('1111111D','CINFA','Ronda');
 
-insert into Familia (nom)
-values ('Fruit Sec');
+insert into familia (Codi, Nom, proveidor_CIF)
+values ('1','Fruitsec','1111111D');
 
-insert into Article (Codi, nom, quantitat)
-values ('2','Nous','5');
+insert into article (Codi_article, Nom, Quantitat_estoc,familia_Codi)
+values ('2','Nous','5','1');
 
-insert into Proveïdors(cif, nom, adreça)
+insert into proveidor(CIF, Nom, Adreça)
 values ('2222222S','RESA','Riu');
 
-insert into Familia (nom)
-values ('Verdura');
+insert into familia (Codi, Nom, proveidor_CIF)
+values ('3','Verdura','2222222S');
 
-insert into Article (Codi, nom, quantitat)
-values ('3','Espàrrec','30');
+
+insert into article(Codi_article, Nom, Quantitat_estoc,familia_Codi)
+values ('3','Espàrrec','30','3');
 
