@@ -40,7 +40,7 @@ select *
 #Q2F. Obtenir les dades dels empleats de la ciutat de Mataró (sense accent) i de Toledo. (3 files)
 #Utilitza alias.
 
-select e.nom_empleat, e.sou
+select e.nom_empl, e.sou
 	from empleat as e
     where e.ciutat_empl='MATARO' and e.ciutat_empl='TOLEDO';
 
