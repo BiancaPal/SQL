@@ -69,21 +69,32 @@ select *
 #Q29C.- Els projectes 1, 2 i 3 van finalitzar 45 dies després de la seva data de finalització. (3 files)
 #       Mostreu els tres projectes amb les dates actualitzades. Utilitzeu adddate().
 
-select data_fi = adddate('2016-08-31', interval 45 day)
-	from projecte
-	WHERE num_proj='1';
+UPDATE projecte
+ SET data_fi = adddate('2016-08-31', interval 45 day)
+ WHERE num_proj='1';
+
   
-UPDATE projectes.projecte SET data_fi = adddate('2016-01-10', interval 45 day) WHERE num_proj='2';
-UPDATE projectes.projecte SET data_fi = adddate('2017-04-01', interval 45 day) WHERE num_proj='3';
+UPDATE projecte
+ SET data_fi = adddate('2016-01-10', interval 45 day)
+ WHERE num_proj='2';
+ 
+UPDATE projecte
+ SET data_fi = adddate('2017-04-01', interval 45 day)
+ WHERE num_proj='3';
 
 #--- amb dates 2 afegides ---#
 #Q29D.- La funció TIMESTAMPDIFF(YEAR,'1973-06-23',CURDATE()) us retornarà els anys transcorreguts des
 #       de la data de 1973 fins avui. Mostreu el nom dels empleat amb més de 30 anys. (Variable)
 
-
+select nom_empl,data_naixement
+	from empleat
+    where TIMESTAMPDIFF(YEAR,data_naixement,CURDATE())>'30';
 
 #Q29E.- Els empleat amb més de cinc anys d'experiència els afegim un complement d'un 5% al sou
 #		mostreu els sous només d'aquests empleats i sumeu l'increment. No feu update.(Variable)
 
-
+update empleat
+	set sou = sou + (sou * 0.05)
+    where timestampdiff(YEAR,data_contracte,CURDATE())>'5';
+    
 
