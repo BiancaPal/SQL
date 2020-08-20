@@ -38,29 +38,43 @@ select distinct num_dept, nom_dpt
 select nom_dpt
 	from departament
     inner join empleat on departament.num_dept=empleat.departament_num_dept
-    having count(nom_empl)>'2' in (select num_proj
-									from projecte
-                                    where num_proj='1');
+    having count(num_empl) >= '2' in  (select count(num_empl)
+								from empleat
+								where projecte_num_proj='1');
     
 
 #Q35 Obtenir el nom dels projectes que tinguin dos o més empleats.
 
 select num_proj
 		from projecte
-		where num_proj in (select projecte_num_proj
-							from empleat
-                            where count(num_empl)>'2');
+		inner join empleat on projecte.num_proj=empleat.projecte_num_proj
+        having count(num_empl) > 2;
+        
 #Q36 Obtenir els departaments que tinguin més treballadors que el departament 3.
 
-
+select num_dept
+	from departament
+    inner join empleat on departament.num_dept=empleat.departament_num_dept
+    having count(num_empl) > (select count(num_empl)
+							 from empleat
+                             where departament_num_dept='3');
 
 #Q37 Obtenir els projectes que tinguin dos o més empleats que viuen en la mateixa ciutat.(0 files)
 
-
+select num_proj
+	from projecte
+    inner join empleat on projecte.num_proj=empleat.projecte_num_proj
+    having count(num_empl) >= '2' and ciutat_empl = (select ciutat_empl
+										              from empleat);
+                                     
 
 #Q38.- Obtenir el nom dels departaments que tinguin dos o més treballadors de ciutats diferents.
 
-
+select nom_dpt
+	from departament
+    inner join empleat on departament.num_dept=empleat.departament_num_dept
+    having count(nom_empl)>='2' and ciutat_empl != (select ciutat_empl	
+									                from empleat);
     
 
 
